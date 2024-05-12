@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CanvasContainer from "./Components/CanvasContainer";
+import ThreeJSDrawingWindow from "./Components/ThreeJSDrawingWindow..tsx";
 import Controls from "./Components/Controls";
  
 const App: React.FC = () => {
@@ -14,15 +14,13 @@ const App: React.FC = () => {
   };
  
   const handlePlaceChargingPoint = () => {
-    // Implement the charging point placement logic here
+    
   };
  
   const handleStartCleaning = () => {
-    // Implement the start cleaning logic here
   };
  
   const handleStopCleaning = () => {
-    // Implement the stop cleaning logic here
   };
  
   return (
@@ -39,7 +37,7 @@ const App: React.FC = () => {
           />
         </div>
         <div className="canvas-container">
-          <CanvasContainer isSketching={isSketching} />
+          <ThreeJSDrawingWindow isSketching={isSketching} />
         </div>
       </div>
     </div>

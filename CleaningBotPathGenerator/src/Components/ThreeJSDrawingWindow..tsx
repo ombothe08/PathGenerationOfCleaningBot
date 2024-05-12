@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
+import  { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Controls from "./Controls";
 
-const CanvasContainer = () => {
+const ThreeJSDrawingWindow = () => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [isSketching, setIsSketching] = useState(false);
   const points = useRef<THREE.Vector3[]>([]);
@@ -87,7 +87,9 @@ const CanvasContainer = () => {
       if (points.current.length > 2) {
         // Add the first point to the end to close the shape
         points.current.push(points.current[0].clone());
-        line.current.geometry.setFromPoints(points.current);
+        if (line.current) {
+          line.current.geometry.setFromPoints(points.current);
+        }
       }
     };
  
@@ -96,11 +98,15 @@ const CanvasContainer = () => {
       if (isSketching) {
         // Add event listeners to allow drawing
         window.addEventListener("click", addPoint);
-        mountRef.current.style.cursor = "crosshair";
+        if (mountRef.current) {
+          mountRef.current.style.cursor = "crosshair";
+        }
       } else {
         // Remove event listeners to prevent further drawing
         window.removeEventListener("click", addPoint);
-        mountRef.current.style.cursor = "default";
+        if (mountRef.current) {
+          mountRef.current.style.cursor = "crosshair";
+        }
         // Close the shape when stopping sketching
         closeShape();
       }
@@ -142,5 +148,5 @@ const CanvasContainer = () => {
   );
 };
  
-export default CanvasContainer;
+export default ThreeJSDrawingWindow;
  

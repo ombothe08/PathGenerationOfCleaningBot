@@ -3,8 +3,8 @@ interface Props {
   onPlaceChargingPoint: () => void;
   onStartCleaning: () => void;
   onStopCleaning: () => void;
-  isSketching: boolean; // Add isSketching prop
-  onStopSketching: () => void; // Add onStopSketching prop
+  isSketching: boolean; 
+  onStopSketching: () => void; 
 }
  
 const Controls: React.FC<Props> = ({ onStartSketching, onPlaceChargingPoint, onStartCleaning, onStopCleaning,onStopSketching }) => {
