@@ -1,28 +1,26 @@
 import React, { useState } from "react";
-import ThreeJSDrawingWindow from "./Components/ThreeJSDrawingWindow..tsx";
 import Controls from "./Components/Controls";
- 
+import ThreeJSDrawingWindow from "./Components/ThreeJSDrawingWindow";
+
 const App: React.FC = () => {
   const [isSketching, setIsSketching] = useState(false);
- 
+
   const handleStartSketching = () => {
     setIsSketching(false);
   };
- 
+
   const handleStopSketching = () => {
     setIsSketching(false);
   };
- 
+
   const handlePlaceChargingPoint = () => {
-    
+    setIsSketching(false);
   };
- 
-  const handleStartCleaning = () => {
-  };
- 
-  const handleStopCleaning = () => {
-  };
- 
+
+  const handleStartCleaning = () => {};
+
+  const handleStopCleaning = () => {};
+
   return (
     <div className="App">
       <div className="main-container">
@@ -43,6 +41,5 @@ const App: React.FC = () => {
     </div>
   );
 };
- 
+
 export default App;
- 
