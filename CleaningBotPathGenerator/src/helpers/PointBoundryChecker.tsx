@@ -5,7 +5,6 @@ export const isPointInsidePolygon = (
     point: THREE.Vector3,
     polygon: THREE.Vector3[]
   ) => {
-    console.log("inside point function");
     let intersections = 0;
  
     // Iterate over each pair of consecutive points in the polygon
