@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Controls from "./Components/Controls";
-import ThreeJSDrawingWindow from "./Components/ThreeJSDrawingWindow";
+import Controls from "./components/Controls";
+import ThreeJSDrawingWindow from "./components/ThreeJSDrawingWindow";
 
 const App: React.FC = () => {
   const [isSketching, setIsSketching] = useState(false);

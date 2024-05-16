@@ -63,6 +63,7 @@ const Controls: React.FC<Props> = ({
             className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-full mr-4 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
             onClick={onStartCleaning}
             disabled={isSketching} // Disable if currently sketching
+            
           >
             Start Cleaning
           </button>
