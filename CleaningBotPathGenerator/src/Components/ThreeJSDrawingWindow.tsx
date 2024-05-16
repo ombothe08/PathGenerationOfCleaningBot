@@ -7,7 +7,6 @@ import { BotSimulator } from "../helpers/BotSimulator";
 import { Cell } from "../data/Cell";
 import { isPointInsidePolygon } from "../helpers/PointBoundryChecker";
 import CloseShape from "../helpers/CloseShape";
-// import createAddPointFunction from "../data/Point";
 
 const ThreeJSDrawingWindow = () => {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -98,7 +97,7 @@ const ThreeJSDrawingWindow = () => {
     toggleDrawing(isSketching);
 
     return () => {
-      toggleDrawing(false); 
+      toggleDrawing(false);
     };
   }, [isSketching]);
 
@@ -115,7 +114,7 @@ const ThreeJSDrawingWindow = () => {
         if (cancelled) return; // Stop execution if cancelled
         const cell = path[i];
 
-        const geometry = new THREE.CircleGeometry(0.1,10);
+        const geometry = new THREE.CircleGeometry(0.1, 10);
         const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
         const box: THREE.Mesh = new THREE.Mesh(geometry, material);
         box.position.set(cell.x, 0, cell.z);
@@ -223,19 +222,19 @@ const ThreeJSDrawingWindow = () => {
   const handlePlaceCleaningBot = () => {
     const gridManager = new GridManager(points.current, 0.1);
     const botSimulator = new BotSimulator(gridManager);
-      const newPath = botSimulator.simulate();
-      setPath(newPath);
-      const geometry = new THREE.CircleGeometry(0.1, 10);
-      const material = new THREE.MeshBasicMaterial({ color: 0xffff00 }); // Yellow color
-      const circle = new THREE.Mesh(geometry, material);
-      
-      const firstCell = newPath[0];
-      circle.position.set(firstCell.x, 0, firstCell.z);
-      scene.current.add(circle);
-      
-      if (rendererRef.current) {
-          document.body.appendChild(rendererRef.current.domElement);
-      }
+    const newPath = botSimulator.simulate();
+    setPath(newPath);
+    const geometry = new THREE.CircleGeometry(0.1, 10);
+    const material = new THREE.MeshBasicMaterial({ color: 0xffff00 }); // Yellow color
+    const circle = new THREE.Mesh(geometry, material);
+
+    const firstCell = newPath[0];
+    circle.position.set(firstCell.x, 0, firstCell.z);
+    scene.current.add(circle);
+
+    if (rendererRef.current) {
+      document.body.appendChild(rendererRef.current.domElement);
+    }
   };
 
   return (
